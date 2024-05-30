@@ -56,9 +56,10 @@ public class Part2Poe {
 
     private static void DisplayTaskManager() {
         // Displaying and creating task details
-        String taskName = JOptionPane.showInputDialog("Enter the task name:");
+        String taskName = JOptionPane.showInputDialog("Enter the task name:"); 
+        String taskNumber = JOptionPane.showInputDialog(null, "Enter task number:");
         String taskDescription = JOptionPane.showInputDialog("Enter the task description (50 characters max):");
-        String getTaskStatus = JOptionPane.showInputDialog(null,
+       String getTaskStatus = JOptionPane.showInputDialog(null,
                 "Please enter the task status:\n" +
                 "1) To Do\n" +
                 "2) Doing\n" +
@@ -76,17 +77,17 @@ public class Part2Poe {
                 taskStatus = "Done";
                 break;
             default:
-                JOptionPane.showMessageDialog(null, "Invalid choice. Please try again.");
+ 
                 DisplayTaskManager(); // Recursive call to show the dialog again
-                return; // Exit the method after the recursive call
+                return ; // Exit the method after the recursive call
         }
-
+        
         String developerDetails = JOptionPane.showInputDialog("Enter the developer details:");
         String durationInput = JOptionPane.showInputDialog("Enter the task duration in hours:");
 
         int taskDuration = Integer.parseInt(durationInput);
 
-        Task newTask = new Task(taskName, taskDescription, developerDetails);
+        Task newTask = new Task(taskName, taskDuration,taskDescription, developerDetails);
         if (newTask.checkTaskDescription()) {
             JOptionPane.showMessageDialog(null, newTask.printTaskDetails());
             taskCount++;

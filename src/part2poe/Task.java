@@ -3,11 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package part2poe;
+
 import javax.swing.JOptionPane;
-/**
- *
- * @author mabel
- */
+
 public class Task {
     private static int totalHours = 0;
     private static int taskCount = 0;
@@ -18,16 +16,16 @@ public class Task {
     private String developerDetails;
     private int taskDuration;
     private String taskID;
-    private String taskStatus; // Added taskStatus field
+    private String taskStatus; 
 
-    public Task(String taskName, String taskDescription, String developerDetails) {
+    public Task(String taskName, int taskDuration, String taskDescription, String developerDetails) {
         this.taskName = taskName;
         this.taskDescription = taskDescription;
         this.developerDetails = developerDetails;
         this.taskDuration = taskDuration;
         this.taskNumber = taskCount++;
         this.taskID = createTaskID();
-        this.taskStatus = taskStatus; // Initialize taskStatus
+        this.taskStatus = "To Do";
         totalHours += taskDuration;
     }
 
@@ -57,7 +55,7 @@ public class Task {
 
     public static void main(String[] args) {
         // Example of creating a task and displaying details
-        Task newTask = new Task("Add Login Feature", "Implement user authentication", "John Doe");
+        Task newTask = new Task("Add Login Feature", 8, "Implement user authentication", "John Doe");
         if (newTask.checkTaskDescription()) {
             JOptionPane.showMessageDialog(null, newTask.printTaskDetails());
         } else {
